@@ -32,7 +32,6 @@ public class BukuProvider {
             if(buku.judul.contains(judul))
                 foundBuku.add(buku);
         }
-        
         return foundBuku;
     }
     

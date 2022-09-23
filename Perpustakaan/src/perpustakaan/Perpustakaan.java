@@ -10,9 +10,14 @@ public class Perpustakaan {
 
     public static HalamanUtamaUI halamanUtamaUI;
     public static PencarianController controllerPencarian;
+    public static PeminjamanController controllerPeminjaman;
     public static FormPencarian formPencarian;
+    public static FormPeminjaman formPeminjaman;
     public static DialogUI dialogUI;
     public static BukuProvider bukuProvider;
+    public static PeminjamanManager peminjamanManager;
+    public static BukuDipinjam bukuDipinjam;
+    public static Peminjaman peminjaman;
     
     /**
      * @param args the command line arguments

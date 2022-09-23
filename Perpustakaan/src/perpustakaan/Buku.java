@@ -13,5 +13,8 @@ public class Buku {
     public Buku(String judul) {
         this.judul = judul;
     }
+        public String judul(){
+        return judul;
+    }
     
 }

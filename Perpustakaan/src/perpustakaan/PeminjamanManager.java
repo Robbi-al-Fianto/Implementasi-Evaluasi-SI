@@ -4,10 +4,24 @@
  */
 package perpustakaan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hp
  */
 public class PeminjamanManager {
-    
+        public PeminjamanManager(){
+        Perpustakaan.peminjaman = new Peminjaman();
+    }
+    public boolean save(ArrayList<BukuDipinjam> bukuDipinjamColection){
+        if(bukuDipinjamColection.size() > 10){
+            return false;
+        } else {
+            for(BukuDipinjam buku : bukuDipinjamColection){
+                Perpustakaan.peminjaman.daftarBuku.add(buku);
+            }
+            return true;
+        }
+    }
 }

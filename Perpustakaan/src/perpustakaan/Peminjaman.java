@@ -4,10 +4,17 @@
  */
 package perpustakaan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hp
  */
 public class Peminjaman {
+    public ArrayList<BukuDipinjam> daftarBuku;
     
+    public Peminjaman(){
+        this.daftarBuku = new ArrayList<>(); 
+    }
 }
+

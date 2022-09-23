@@ -8,10 +8,14 @@ package perpustakaan;
  *
  * @author hp
  */
-public class BukuDipinjam {
-        public int lama;
+public class BukuDipinjam extends Buku { 
+    private int lama;
     
-    public BukuDipinjam (int lama) {
+    public  BukuDipinjam (String judul, int lama){
+        super(judul);
         this.lama = lama;
+    }
+    public int lama(int lama){
+        return this.lama = lama;
     }
 }
