@@ -103,6 +103,11 @@ public class FormPeminjaman extends javax.swing.JFrame {
         });
 
         jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Lama Peminjaman");
 
@@ -215,17 +220,34 @@ public class FormPeminjaman extends javax.swing.JFrame {
 
     private void jButtonBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBatalMouseClicked
         // TODO add your handling code here:
+        
+        
                 // inisiasi pengambilan judul buku
         int row = jtPeminjaman.getSelectedRow();
         int column = jtPeminjaman.getSelectedColumn();
         String judul = jtPeminjaman.getModel().getValueAt(row, column).toString();
+
+        String lama = jtFieldLama.getText();
+        
+        if(lama.isBlank()){
+                DialogUI dialogUI = new DialogUI("Peminjaman buku maksimal 3 hari");
+                dialogUI.pack();
+                dialogUI.setLocationRelativeTo(null);
+                dialogUI.setVisible(true); }
         
         this.hapusBuku(new Buku (judul));
+        
     }//GEN-LAST:event_jButtonBatalMouseClicked
 
     private void jButtonPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinjamActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPinjamActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+            Perpustakaan.controllerPeminjaman = new PeminjamanController();
+        Perpustakaan.controllerPeminjaman.pinjam(bukuDipinjamCollection);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public void display(ArrayList<Buku> bukuList) {
         Object[] kolom = { "Judul" };
@@ -263,7 +285,7 @@ public class FormPeminjaman extends javax.swing.JFrame {
 //    hapus buku dari tabel pinjaman
     public void hapusBuku(Buku buku){
         for(BukuDipinjam listBuku : this.bukuDipinjamCollection){
-            if(listBuku.judul().equalsIgnoreCase(buku.judul())){ //equalsignorecase untuk membaca huruf besar kecil
+            if(listBuku.judul().equalsIgnoreCase(buku.judul())){ //equals ignorecase untuk membaca huruf besar kecil
                 this.bukuDipinjamCollection.remove(listBuku);
                 break;
             }
